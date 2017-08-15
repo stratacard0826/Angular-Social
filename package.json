@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "scripts": {
+    "webpack": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "dev": "cross-env NODE_ENV=development webpack --watch --hide-modules",
+    "hmr": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "devDependencies": {
+    "axios": "^0.15.2",
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "bootstrap-sass": "^3.3.7",
+    "jquery": "^3.1.0",
+    "laravel-mix": "^0.5.0",
+    "sweetalert2": "^6.3.2",
+    "vue": "^2.0.1",
+    "vue-router": "^2.2.0"
+  },
+  "dependencies": {
+    "moment": "^2.17.1",
+    "vuex": "^2.1.1",
+    "croppie": "^2.4.0"
+  }
+}
