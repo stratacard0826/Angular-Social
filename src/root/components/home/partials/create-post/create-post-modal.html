@@ -1,0 +1,23 @@
+﻿<div class="modal fade createPostModal" bsModal #createPostModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close" id="closeCreatePost" data-dismiss="modal" (click)="createPostModal.hide()">&times;</button>
+      <div class="modal-body">
+        <h1>Original uSTADIUM</h1>
+        <textarea class="" placeholder="Want to share something?" [(ngModel)]="postModel.text" autofocus></textarea>
+        <div class="links">          
+          <a class="photo" (click)="imageInput.click()">Photo</a>
+          <a class="video" (click)="videoInput.click()">Video</a>
+          <a class="audio" (click)="audioInput.click()">Audio</a>
+          
+          <input #imageInput type="file" accept="image/*" (change)="fileChange($event,'Photo')" multiple class="file-input" />
+          <input #videoInput type="file" accept="video/*" (change)="fileChange($event,'Video')" multiple class="file-input" />
+          <input #audioInput type="file" accept="audio/*" (change)="fileChange($event,'Audio')" multiple class="file-input"/>
+
+          <a class="post" id="submitPost" (click)="createPost()">Post</a>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

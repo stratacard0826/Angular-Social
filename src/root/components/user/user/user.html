@@ -1,0 +1,23 @@
+﻿<div class="box-bg profile">
+  <div class="bg">
+    <div class="pic" (click)="myProfile()">
+      <img [src]="user.avatar">
+    </div>
+  </div>
+  <h1 class="text-center"><a (click)="myProfile()">{{user.nickname}}</a></h1>
+  <h3 class="text-center"><a (click)="myProfile()">@{{user.username}}</a></h3>
+  <div class="statistics">
+    <div class="columns">
+      <h2>{{user.numPosts}}</h2>
+      <p>POSTS</p>
+    </div>
+    <div class="columns">
+      <h2>250</h2>
+      <p>STREAMS</p>
+    </div>
+    <div class="columns">
+      <h2>{{user.following?user.following:0}}</h2>
+      <p>FEEDS FOLLOWING</p>
+    </div>
+  </div>
+</div>

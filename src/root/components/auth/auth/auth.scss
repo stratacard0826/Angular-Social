@@ -1,0 +1,72 @@
+﻿
+.registration-form {
+  width: 60%;
+}
+
+.registration-form .outer {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.registration-form .outer.half {
+  width: 47%;
+}
+
+.registration-form .outer.half.left {
+  float: left;
+}
+
+.registration-form .outer.half.right {
+  float: right;
+}
+
+.registration-form .outer .toggle-pw {
+  position: absolute;
+  right: 0;
+  top: 22px;
+  cursor:pointer;
+}
+
+.registration-form label {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  color: #000000;
+  margin-bottom: 0px;
+}
+
+.registration-form input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #d4d4d4;
+  width: 100%;
+  padding: 0 0 5px 0;
+  font-size: 16px;
+}
+
+.registration-form .social-icons {
+  margin-bottom: 10px;
+}
+
+.registration-form .create-account button {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  background: black;
+  display: inline-block;
+  padding: 15px 20px;
+  border-radius: 100px;
+  cursor:pointer;
+  outline:none;
+}
+
+.registration-form .alert
+{
+  font-family: sans-serif
+}
+
+@media (max-width: 667px) {
+  .registration-form {
+    width: 100%;
+    text-align: left;
+  }
+}

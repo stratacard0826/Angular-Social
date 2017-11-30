@@ -1,0 +1,86 @@
+﻿.box-bg {
+  border-radius: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px #edeeee;
+  margin-bottom: 15px;
+}
+
+
+.box-bg.slider {
+  padding: 15px;
+}
+
+.box-bg.slider ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-bg.slider ul li {
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.box-bg.slider ul li a {
+  display: inline-block;
+  height:100%;
+  cursor:pointer;
+}
+
+.box-bg.slider ul li a img {
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  border-radius:50%;
+}
+
+.box-bg.slider ul li:nth-child(6) {
+  width: 46px;
+  height: 46px;
+  opacity: 1;
+}
+
+.box-bg.slider ul li:nth-child(5),
+.box-bg.slider ul li:nth-child(7) {
+  width: 41px;
+  height: 41px;
+  opacity: .8;
+}
+
+.box-bg.slider ul li:nth-child(4),
+.box-bg.slider ul li:nth-child(8) {
+  width: 38px;
+  height: 38px;
+}
+
+.box-bg.slider ul li:nth-child(6) a img {
+  opacity: 1;
+}
+
+.box-bg.slider ul li:nth-child(6) a img {
+  opacity: .8;
+}
+
+.box-bg.slider .heading {
+  position: relative;
+}
+
+.box-bg.slider .heading h1 {
+  font-size: 20px;
+  text-align: center;
+  color: #000000;
+  margin: 15px 0 0 0;
+  font-family: SFProDisplayBold;
+}
+
+.box-bg.slider .heading span {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}

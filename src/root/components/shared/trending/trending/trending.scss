@@ -1,0 +1,87 @@
+﻿.box-bg {
+  border-radius: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px #edeeee;
+  margin-bottom: 15px;
+}
+
+.box-bg > h1.heading {
+  font-size: 21px;
+  padding: 15px;
+  margin: 0;  
+  text-align: center;
+  color: #000000;
+  font-family: SFProDisplayBold;
+}
+
+.box-bg > .see-all {
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #818488;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.box-bg.trendings ul {
+  padding: 15px;
+}
+
+.box-bg.trendings ul li {
+  padding-bottom: 15px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.box-bg.trendings ul li span.icon {
+  display: inline-block;
+  line-height: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.box-bg.trendings ul li:last-child {
+  padding-bottom: 0px;
+}
+
+.box-bg.trendings ul li h1 {
+  font-size: 15px;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.box-bg.trendings ul li p {
+  font-size: 12.5px;
+  color: #a5a7aa;
+  font-family: SFProDisplayLight;
+  margin: 0;
+}
+
+.footer-nav ul {
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.footer-nav ul li {
+  display: inline;
+}
+
+.footer-nav ul li a {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #818488;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 2px;
+}
+
+.copyright {
+  opacity: 0.6;
+  font-size: 10px;
+  line-height: 2;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #818488;
+}
+

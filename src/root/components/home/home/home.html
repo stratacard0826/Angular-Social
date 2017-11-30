@@ -1,0 +1,31 @@
+﻿
+<div [ngClass]="{'container-fluid':isContainerFluid,'container':!isContainerFluid}">
+  <div class="row">
+    <div class="col-lg-3 col-md-6">
+      <user></user>
+      <div class="box-bg share">
+        <h1>Create Post</h1>
+        <textarea class="create-post-area" placeholder="Want to share something?" (click)="createPostModal.show()"></textarea>
+        <div class="msg">
+
+          <!-- Modal -->
+          <a class="submit" (click)="createPostModal.show();"></a>
+          <create-post-modal #createPostModal></create-post-modal>
+        </div>
+      </div>
+
+      <messages></messages>
+    </div>
+    <div class="col-lg-6 col-md-6" *ngIf="!isSearch">
+      <!-- <slider></slider> -->
+      <post></post>
+    </div>
+    <div class="col-lg-6 col-md-6" *ngIf="isSearch">
+      <search [searchType]="searchType"></search>
+    </div>
+    <div class="col-lg-3 col-md-6">
+      <feed></feed>
+      <trending></trending>
+    </div>
+  </div>
+</div>

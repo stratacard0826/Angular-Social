@@ -1,0 +1,107 @@
+﻿.divisions {
+  margin-top: -26px;
+  display: flex;
+  min-height:500px;
+}
+
+.divisions > .division {
+  width: 50%;
+  float: left;
+  min-height: 260px;
+  padding: 40px;
+}
+
+.divisions > .division.left {
+  background: url('/assets/images/img/mobiles.png') no-repeat right bottom;
+}
+
+.divisions > .division.left h1 {
+  font-family: SFProDisplayHeavy;
+  font-size: 48px;
+  letter-spacing: 0.9px;
+}
+
+.divisions > .division.left p {
+  font-size: 14px;
+  opacity: 0.5;
+  letter-spacing: 0.3px;
+  font-style: italic;
+}
+
+/* RIGHT DIVISION */
+
+.divisions > .division.right {
+  background: url(/assets/images/img/right-bg.png) no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divisions > .division.right h1,
+.divisions > .division.right h2 {
+  font-size: 35px;
+  line-height: 1.26;
+  letter-spacing: 0.6px;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.divisions > .division.right h2 {
+  font-size: 30px;
+}
+
+.divisions > .division.right p img {
+  width: 140px;
+  margin: 10px;
+}
+
+.divisions > .division.right .login {
+  padding: 4px 20px;
+  color: white;
+  border: 2px solid white;
+  display: inline-block;
+  border-radius: 100px;
+}
+
+@media (max-width: 1270px) {
+  .divisions > .division.left {
+    background-size: 212px;
+  }  
+}
+
+@media (max-width: 992px) {
+  .divisions > .division {
+    width: 100%;
+  }
+
+  .divisions {
+    flex-direction: column;
+  }
+
+  .divisions > .division.left {
+    background-size: auto;
+  }  
+}
+
+@media (max-width: 667px) {
+  .divisions .division.left {
+      padding-top: 70px!important;
+  }
+  .divisions > .division.left {
+    background-image: none;
+    text-align: center;
+  }  
+}
+
+@media (max-width: 630px) {
+  .divisions > .division.left {
+    background-size: 212px;
+  }  
+}
+
+@media (max-width: 470px) {
+  .divisions .division.left {
+      padding-top: 180px!important;
+  }
+}

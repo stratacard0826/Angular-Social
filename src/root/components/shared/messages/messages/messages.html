@@ -1,0 +1,23 @@
+﻿<div class="box-bg search-box">
+  <h1 class="heading">Messages</h1>
+  <div class="search">
+    <input #searchMessage
+           class="input-bar"
+           type="text"
+           placeholder="Search name or phone number"
+           (input)="filterMessages(searchMessage.value)">    
+  </div>
+  <ul>
+    <li class="online" *ngFor="let message of filteredMessages | slice:0:5">
+      <div class="img">
+        <img [src]="message.avatar">
+      </div>
+      <div class="data">
+        <h1><a>{{message.nickname}}</a></h1>
+      </div>
+      <div class="join" (click)="createMessageModal.show(message,'direct')">MESSAGE</div>
+      <div class="clear-fix"></div>
+    </li>
+  </ul>  
+  <create-message-modal #createMessageModal></create-message-modal>
+</div>

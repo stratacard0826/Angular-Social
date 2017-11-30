@@ -1,0 +1,411 @@
+﻿.box-bg {
+  border-radius: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px #edeeee;
+  margin-bottom: 15px;
+}
+
+
+.box-bg.wrapper {
+  padding: 15px 20px;
+  position: relative;
+  margin-bottom: 2px;
+}
+
+.box-bg.wrapper .pictures {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 40px 0;
+}
+
+.box-bg.wrapper .pictures .player-img {
+  width: 80px;
+  float: left;
+  margin: 6px;
+}
+
+.box-bg.wrapper .finally {
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.box-bg.wrapper .link ul li {
+  display: inline-block;
+}
+
+.box-bg.wrapper .link ul li a {
+  color: #818488;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 28px;
+}
+
+.box-bg.wrapper .link ul li a:hover {
+  color: #000000;
+}
+
+.box-bg.wrapper.transparent {
+  background: transparent;
+  border: none;
+}
+
+.feed-outer {
+  padding: 10px;
+  background: white;
+  margin-bottom: 10px;
+}
+
+.feed-outer .profile {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.feed-outer .profile img {
+  width: 100%;
+  height: 100%;
+}
+.feed-outer .profile img .avatar {
+  border-radius: 50%;
+}
+
+.feed-outer .data {
+  width: calc(100% - 60px);
+  float: left;
+  margin-top: -7px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.feed-outer .data span.menu-02 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+
+.feed-outer .data h1 {
+  font-size: 22px;
+  line-height: 28px;
+  color: #888888;
+  margin-bottom: 4px;
+}
+
+.feed-outer .data h4 {
+  color: #888888;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.feed-outer .profile.out .img {
+  width: 60px;
+  height: 60px;
+  float: left;
+}
+
+.feed-outer .profile.in .img {
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+
+.feed-outer .content {
+  line-height: 30px;
+  clear: both;
+  margin-top: 10px;
+}
+
+.feed-outer .content p {
+  margin-bottom: 0px;
+  color: #222222;
+  font-size: 20px;
+}
+
+.feed-outer .feed-inner {
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+.feed-outer .feed-inner.post {
+  padding: 0;
+}
+
+.feed-outer .feed-inner.post li {  
+  float: left;
+}
+
+.feed-outer .feed-inner.post li img.post-image {
+cursor:pointer;
+}
+
+.feed-outer .feed-inner.post li:nth-child(2n+1) {
+  /*padding-right: 5px;*/
+}
+
+.feed-outer .feed-inner.post li:nth-child(2n) {
+  /*padding-left: 5px;*/
+}
+
+.feed-outer .feed-inner.post li img {
+  width: 100%;
+}
+
+.feed-outer .feed-inner.post li.mb10 {
+  margin-bottom: 10px;
+}
+
+.feed-outer .stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 5px 20px;
+}
+
+.feed-outer .stats a {
+  color: #222;
+  display: flex;
+  align-items: center;
+ 
+}
+
+.feed-outer .stats a svg {
+  margin-right: 6px;  
+}
+
+.feed-outer .stats a.like,
+.feed-outer .stats a.comments {
+  cursor: pointer;
+  //color: #34c083;
+
+  :active {
+    use {
+      fill: #34C083;
+    }
+  }
+}
+
+.feed-outer .feature-img {
+  width: 100%;
+}
+
+.feed-outer.post {
+  margin-bottom: 0px;
+}
+
+.feed-outer.comment {
+  border-top: 1px solid #E9E9E9;
+  margin-bottom: 0;
+  padding: 15px 10px 10px;
+}
+
+.feed-outer.comment .profile {
+  display: flex;
+  align-items: flex-start;
+}
+
+.feed-outer.comment input {
+  opacity: 0.5;
+  font-size: 19px;
+  color: #000000;
+  border: none;
+  width: 100%;
+}
+
+.feed-outer.comment div.icons {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 110px;
+}
+
+.feed-outer.comment h1 span.count {
+  font-size: 14px;
+  color: white;
+  background: #34c083;
+  width: 18px;
+  height: 18px;
+  display: inline;
+  text-align: center;
+  padding: 3px 7px 3px;
+  border-radius: 50%;
+}
+
+.feed-outer.comment h1 span.time {
+  float: right;
+  color: #888888;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.feed-outer.comment p {
+  margin-bottom: 0;
+  color: #222222;
+}
+
+.feed-outer.comment p a {
+  color: #15C281;
+}
+
+.feed-outer:last-child {
+  margin-bottom: 0px;
+}
+
+.post-drop-menu.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.postImageModal {
+  display: block;
+  position: fixed;
+  width:unset;
+  height:unset;
+  color: black;
+  z-index: 1050;
+  box-shadow: 0px 0px 90px rgba(0, 0, 0, 0.48);
+  border-radius: 35px;
+  overflow:visible !important;
+  margin:0 auto;
+  text-align:center;
+}
+.postImageModal .modal-dialog {
+  margin: 0 auto;
+  width:unset;
+  height:unset;
+  max-width:none !important;
+  display:inline-block;
+  margin-top:20px !important;
+}
+
+.postImageModal .modal-content {
+  border: none;
+  height: unset;
+  padding: 35px 45px;
+  position: relative;
+  display:inline-block;
+}
+
+.postImageModal .modal-content button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: inline;
+}
+
+.postImageModal .modal-body {
+  padding: 0;
+  height: unset;
+  width: unset;
+
+  img {
+    position:unset;
+    height: unset !important;
+    width: unset !important;
+    max-height:610px;
+    max-width:850px;
+  }
+}
+
+.box-bg.feeds-filter-list {
+  margin-bottom: 1px;
+}
+.feeds-filter-list ul {
+    float: left;
+    width: 100%;
+}
+.feeds-filter-list ul li {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 14px 0;
+    color: #bbbbbb;
+    cursor: pointer;
+    position: relative;
+}
+.feeds-filter-list ul li.active {
+    border-bottom: 3px solid black;
+    color: #000;
+}
+.feeds-filter-list ul li:hover {
+    color: rgba(0, 0, 0, .5);
+}
+.feeds-filter-list ul li.active:hover {
+    color: rgba(0, 0, 0, 1);
+}
+.feeds-filter-list ul.more-feeds {
+    position: absolute;
+    z-index: 11;
+    background: rgb(255, 255, 255);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, .15);
+    width: 140px;
+    right: 10px;
+    top: 51px;
+    /*display: none;*/
+}
+.feeds-filter-list ul.more-feeds li {
+    display: block;
+    width: 100%;
+    float: left;
+    padding: 0;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.feeds-filter-list ul.more-feeds li:first-child {
+    padding-top: 10px;
+}
+.feeds-filter-list ul.more-feeds:before {
+    position: absolute;
+    content: "";
+    background: transparent;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent blue;
+    bottom: 100%;
+    right: 32px;
+}
+.feeds-filter-list ul.more-feeds:after {
+    position: absolute;
+    content: "";
+    background: transparent;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff;
+    bottom: 100%;
+    right: 32px;
+}
+
+.post-images {
+  display: block;
+  width: 100%;
+  position: relative;
+  height: 0;
+  padding: 50% 0 0 0;
+  overflow: hidden;
+  margin-bottom:2px;
+
+  img {
+    position: absolute;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding-right:2px;
+  }
+}
+
+.post-image-overflow {
+max-width:100%;
+overflow-x:auto;
+}

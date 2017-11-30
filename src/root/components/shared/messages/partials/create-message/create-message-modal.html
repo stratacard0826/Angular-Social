@@ -1,0 +1,92 @@
+﻿<div class="modal fade msg-model" 
+     bsModal #createMessageModal="bs-modal" 
+     [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" 
+     aria-hidden="true">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="closeCreateMessage" data-dismiss="modal" (click)="createMessageModal.hide()">&times;</button>        
+        <h1 class="modal-title">
+          <a [ngClass]="{'active':modalType=='list'}"  (click)="changeModalType('list')">Messages</a>
+          <a class="find" [ngClass]="{'active':modalType=='find'}" (click)="changeModalType('find')">Find</a>
+          <a [ngClass]="{'active':modalType=='direct','hidden':modalType!='direct'}"><img [src]="recipientModel.avatar?recipientModel.avatar:'/assets/images/img/profile01.png'"></a>
+          <a class="plus" [ngClass]="{'hidden':modalType!='list'}" (click)="changeModalType('find')"></a>
+        </h1>
+      </div>
+    
+      <!--Direct Message-->
+      <form class="modal-body" *ngIf="modalType=='direct'"
+            #messageForm="ngForm" 
+            novalidate
+            (ngSubmit)="createMessage()">
+        <div class="time">
+          <span>{{recipientModel.lastMessageCreatedAt}}</span>
+        </div>
+        <div class="modal-body-messages"  #scrollMe [scrollTop]="scrollMe.scrollHeight">
+          <div *ngFor="let msg of recipientModel.messages" [ngClass]="{'right':msg.isCurrentUserAuthor,'left':!msg.isCurrentUserAuthor}">
+            <p>{{msg.text}}</p>
+            <span>{{msg.createdAt| date:'h:mma'}}</span>
+          </div>
+          <div *ngIf="recipientModel.messages.length==0">
+           <div class="alert alert-info">
+             No messages
+           </div>
+            
+          </div>
+        </div>
+         <div class="new-msg">
+          <!-- <span> -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="17" viewBox="0 0 22 17"><path fill-rule="evenodd" d="M12.072 5.137c0-.937.774-1.7 1.727-1.7.95 0 1.726.763 1.726 1.7s-.775 1.7-1.727 1.7c-.954 0-1.728-.763-1.728-1.7zM1.855 14.504V12.19l5.928-4.803 5.827 5.06a.927.927 0 0 0 1.2.013l2.51-2.086 2.157 1.806v2.324H1.855zm17.622-12.52V9.76l-1.56-1.307a.927.927 0 0 0-1.19 0l-2.496 2.076-5.818-5.055a.927.927 0 0 0-1.192-.02L1.855 9.802v-7.82h17.622zm.927-1.856H.927A.927.927 0 0 0 0 1.055V15.43c0 .513.415.928.927.928h19.477a.927.927 0 0 0 .928-.927V1.056a.927.927 0 0 0-.928-.927z" opacity=".45" /></svg>
+          <!-- </span> -->
+          <input type="text" name="textMessage" placeholder="Message..." [(ngModel)]="messageModel.text" autofocus autocomplete="off">
+          <a (click)="createMessage()" >Send</a>
+        </div>
+      </form>
+      
+      <!--Find Contacts-->
+      <div class="modal-body" *ngIf="modalType=='find'">
+        <div class="find">
+          <input type="search" placeholder="Enter name or phone number" [(ngModel)]="term" (keyup)="searchContacts(term)"
+                 autofocus>
+        </div>
+        <div class="modal-body-messages">
+          <div class="feed-outer comment" *ngFor="let usr of filteredUsers">
+            <div class="profile out online" (click)="selectContact(usr)">
+              <div class="img">
+                <img [src]="usr.avatar?usr.avatar:'/assets/images/img/profile01.png'">
+              </div>
+              <div class="data">
+                <h1><a>{{usr.nickname}}</a></h1>
+                <p><a>@{{usr.username}}</a></p>
+              </div>
+            </div>
+            <div class="clear-fix"></div>
+          </div>
+        </div>
+        </div>
+    
+       <!--Threads List-->
+      <div class="modal-body" *ngIf="modalType=='list'">
+        <div class="modal-body-messages">
+          <div class="feed-outer comment" *ngFor="let thread of messages">
+            <div class="profile out online"  (click)="selectThread(thread)">
+              <div class="img">
+                <img [src]="thread.avatar?thread.avatar:'/assets/images/img/profile01.png'">
+              </div>
+              <div class="data">
+                <h1><a>{{thread.nickname}}</a> <span class="count" *ngIf="!thread.isRead">{{thread.messages.length}}</span><span class="time">{{thread.lastMessageCreatedAt | amTimeAgo}}</span></h1>
+                <p>{{thread.lastMessageText}}</p>
+              </div>
+            </div>
+            <div class="clear-fix"></div>
+          </div>
+       </div>
+        </div>
+
+    </div>
+  </div>
+  </div>
+  

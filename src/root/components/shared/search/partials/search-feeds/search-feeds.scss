@@ -1,0 +1,124 @@
+﻿
+.box-bg.suggested .join {
+  width: 50px;
+  float: left;
+  border-radius: 4px;
+  border: solid 1px #000000;
+  text-align: center;
+  font-size: 11px;
+  color: #000000;
+  padding: 3px 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+}
+
+.box-bg.suggested .joined .join {
+  border: none;
+  text-align: left;
+  width:43px;
+}
+
+.box-bg.suggested .joined .join:after {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 8px;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  transform: rotate(45deg);
+  left: 100%;
+  top: 4px;
+}
+
+.suggested.feed-result .feed-outer.comment p {
+  font-family: SFProDisplayLight;
+  font-size: 15px;
+}
+
+.suggested.feed-result .feed-outer.comment p a {
+  color: #15C281;
+  position: relative;
+  margin-left: 20px;
+}
+
+.suggested.feed-result .feed-outer.comment p a:before {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: black;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.suggested.feed-result .feed-outer.comment .profile {
+  align-items: center;
+}
+
+.suggested.feed-result .feed-outer.comment .profile .img {
+  width: 73px;
+  height: 73px;
+}
+
+.suggested.feed-result .feed-outer.comment .profile .img img {
+  border-radius: 4px;
+}
+
+.suggested.feed-result .feed-outer .data {
+  width: calc(100% - 130px);
+}
+
+.suggested.show-trending ul {
+  float: left;
+  width: 100%;
+}
+
+.suggested.show-trending ul li {
+  width: 33.33%;
+  float: left;
+  padding: 15px;
+  text-align: center;
+}
+
+.suggested.show-trending ul li img {
+  width: 100%;
+}
+
+.suggested.show-trending ul li h1 {
+  font-size: 20px;
+  line-height: 25px;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.suggested.show-trending ul li p {
+  text-align: left;
+  font-family: SFProDisplayLight;
+  font-size: 14px;
+}
+
+.suggested.show-trending ul li p a {
+  color: #15C281;
+  position: relative;
+  margin-left: 20px;
+}
+
+.suggested.show-trending ul li p a:before {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: black;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.suggested.show-trending ul li .join {
+  margin: 0 auto;
+  float: none;
+}

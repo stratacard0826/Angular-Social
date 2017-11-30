@@ -1,0 +1,20 @@
+﻿
+  <div class="box-bg search-header">
+    <input class="search" placeholder="Search here..." [(ngModel)]="term" autofocus />
+  </div>
+  <div class="box-bg filter-list">
+    <ul>
+      <li [ngClass]="{'active':searchType=='people'}" (click)="changeSearchType('people')">People</li>
+      <li [ngClass]="{'active':searchType=='posts'}" (click)="changeSearchType('posts')">Posts</li>
+      <li [ngClass]="{'active':searchType=='feeds'}" (click)="changeSearchType('feeds')">Feeds</li>
+      <li [ngClass]="{'active':searchType=='videos'}" (click)="changeSearchType('videos')">Video</li>
+      <li [ngClass]="{'active':searchType=='streams'}" (click)="changeSearchType('streams')">Streams</li>
+    </ul>
+    <div class="clear-fix"></div>
+  </div>
+<search-people *ngIf="searchType=='people'" [term]="term"></search-people>
+<search-posts *ngIf="searchType=='posts'" [term]="term"></search-posts>
+<search-feeds *ngIf="searchType=='feeds'" [term]="term"></search-feeds>
+<search-videos *ngIf="searchType=='videos'" [term]="term"></search-videos>
+<search-streams *ngIf="searchType=='streams'" [term]="term"></search-streams>
+

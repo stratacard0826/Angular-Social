@@ -1,0 +1,16 @@
+﻿<div class="app">
+  <ngx-loading [show]="isLoading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+  <app-header
+    [user]="router.url!='/login'?user:undefined"
+    (onLogout)="logout($event)">
+  </app-header>  
+    
+  <div autoscroll *ngIf="router.url==='/'">
+    <welcome *ngIf="!user"></welcome>
+    <home *ngIf="user"></home>
+  </div>  
+
+  <div autoscroll *ngIf="router.url!='/'">
+    <router-outlet></router-outlet>
+  </div>  
+</div>

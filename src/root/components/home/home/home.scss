@@ -1,0 +1,163 @@
+﻿.box-bg {
+  border-radius: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px #edeeee;
+  margin-bottom: 15px;
+}
+
+.box-bg > h1.heading {
+  font-size: 21px;
+  padding: 15px;
+  margin: 0;
+  /*border-bottom: 1px solid #edeeee;*/
+  text-align: center;
+  color: #000000;
+  font-family: SFProDisplayBold;
+}
+
+
+
+/**********************/
+/*    share box    */
+/**********************/
+.box-bg.share {
+  padding: 15px;
+  position: relative;
+}
+
+.box-bg.share > h1 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+
+.box-bg.share .msg {
+  position: relative;
+  min-height: 60px;
+  overflow: auto;
+}
+
+.box-bg.share .msg .create-post {
+  position: fixed;
+  background: white;
+}
+
+.box-bg.share textarea {
+  width: 100%;
+  resize: none;
+  height: 100%;
+  font-size: 18px;
+  border: none;
+  font-family: SFProDisplayLight;
+}
+
+
+.box-bg.share .links a {
+  width: 90px;
+  border-radius: 100px;
+  background-color: #ffffff;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 12px;
+  color: #000000;
+  padding: 8px 0px;
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-position-x: 15px;
+  text-indent: 14px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.box-bg.share .links a.post {
+  color: #fff;
+  padding: 8px 0px;
+  text-indent: 0px;
+  margin-right: 0px;
+  float: right;
+  background: #15c281;
+}
+
+.box-bg.share .links a.photo {
+  background-image: url(/assets/images/img/photo.png);
+}
+
+.box-bg.share .links a.video {
+  background-image: url(/assets/images/img/video.png);
+}
+
+.box-bg.share .links a.audio {
+  background-image: url(/assets/images/img/audio.png);
+}
+
+
+.box-bg.share a.submit {
+  bottom: 0px;
+  right: 0px;
+  width: 34px;
+  height: 34px;
+  background: #34c083;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+}
+
+.box-bg.share a.submit:before,
+.box-bg.share a.submit:after {
+  position: absolute;
+  background: white;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box-bg.share a.submit:before {
+  width: 15px;
+  height: 2px;
+}
+
+.box-bg.share a.submit:after {
+  width: 2px;
+  height: 15px;
+}
+
+
+
+/*********************/
+/*   search-post    */
+/*********************/
+.suggested.results .feed-outer.comment p {
+  color: #888888;
+  /*font-family: SFProDisplayThin;*/
+}
+
+
+
+@media (max-width: 700px) {
+  .box-bg.share .links a.photo {
+    margin-bottom: 10px;
+  }
+
+  .box-bg.share .links a.post {
+    float: none;
+    margin-right: 10px;
+  }
+
+}
+
+@media (max-width: 490px) { 
+  .suggested.show-trending ul li {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .feed-outer .stats a {
+    flex-direction: column;
+  }
+}

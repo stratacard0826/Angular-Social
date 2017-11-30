@@ -1,0 +1,349 @@
+﻿@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 580px;
+  }
+}
+
+
+.modal-backdrop {
+  background: rgba(255,255,255,0.4);
+}
+
+.top-messages-model {
+  top: 15px !important;
+  left: auto !important;
+  width: 55% !important;
+}
+
+.msg-model .modal-content {
+  border-radius: 20px;
+  box-shadow: 3px 4px 6px 0 rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+.msg-model button.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.msg-model .modal-title {
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.msg-model .modal-title a {
+  font-size: 30px;
+  text-align: left;
+  font-family: SFProDisplayBold;
+  color: #bbbbbb;
+  cursor:pointer;
+}
+
+.msg-model .modal-title a.active {
+  color: #000;
+  position: relative;
+}
+
+.msg-model .modal-title a.active:after {
+  content: "";
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  background: #34c083;
+  border-radius: 50%;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 8px);
+}
+
+.msg-model .modal-title a.find {
+  margin: 0 15px;
+}
+
+.msg-model .modal-title a img {
+  width: 44px;
+  height: 44px;
+  border-radius:50%;
+}
+
+.msg-model .modal-title a.hidden {
+  display: none;
+}
+
+.msg-model .modal-title .plus {
+  width: 34px;
+  height: 34px;
+  background: #34c083;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  margin-left: 150px;
+}
+
+.msg-model .modal-title .plus:before,
+.msg-model .modal-title .plus:after {
+  position: absolute;
+  background: white;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.msg-model .modal-title .plus:before {
+  width: 15px;
+  height: 2px;
+}
+
+.msg-model .modal-title .plus:after {
+  width: 2px;
+  height: 15px;
+}
+
+.msg-model .modal-header {
+  padding: 35px 35px 10px;
+  border: none;
+}
+
+.msg-model .modal-body {
+  padding: 15px 35px;
+}
+
+.msg-model .modal-body .modal-body-messages {
+  min-height:250px;
+  max-height: 410px;
+  overflow-y: auto;
+}
+
+.msg-model .modal-body .feed-outer.comment p {
+  font-family: SFProDisplayLight;
+}
+
+.msg-model .modal-body .feed-outer.comment {
+  position: relative;
+  border: none;
+  padding: 20px 10px 20px;
+}
+
+.msg-model .modal-body .feed-outer.comment:after {
+  position: absolute;
+  content: "";
+  width: calc(100% - 37px);
+  height: 1px;
+  background: #f1f1f1;
+  bottom: 0;
+  left: 37px;
+}
+
+.msg-model .modal-body .feed-outer.comment:last-child:after {
+  background: transparent;
+}
+
+.msg-model .modal-body .feed-outer .profile.out .img {
+  width: 44px;
+  height: 44px;
+  float: left;
+  position: relative;
+}
+
+.msg-model .modal-body .feed-outer .profile.out.online .img:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #34c083;
+  border-radius: 50%;
+  right: 0px;
+  bottom: 0px;
+  border: 2px solid white;
+}
+
+.msg-model .modal-body .find {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.msg-model .modal-body .find input {
+  width: 70%;
+  border-radius: 100px;
+  background-color: #f1f1f1;
+  border: none;
+  text-align: center;
+  padding: 5px 0;
+  font-family: SFProDisplayLight;
+}
+
+.msg-model .modal-body .time {
+  text-align: center;
+  color: #888888;
+  font-size: 10px;
+  margin: 10px 0;
+}
+
+.msg-model .modal-body .left p,
+.msg-model .modal-body .right p {
+  padding: 10px 10px;
+  background-color: #f1f1f1;
+  marging: 0;
+  width: 80%;
+  border-radius: 4px;
+  margin-bottom: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.msg-model .modal-body .right {
+  text-align: right;
+}
+
+.msg-model .modal-body .right p {
+  text-align: left;
+  background: #34c083;
+  padding: 10px 10px;
+  color: white;
+  display: inline-block;
+  font-size: 15px;
+}
+
+.msg-model .modal-body .left span,
+.msg-model .modal-body .right span {
+  margin: 10px 0 10px;
+  display: block;
+  font-size: 11px;
+  color: #888888;
+}
+
+.msg-model .modal-body .new-msg {
+  font-size: 16px;
+  color: #000000;
+  border-top: 1px solid #f1f1f1;
+  position: relative;
+  /*margin-top: 100px;*/
+  padding: 10px 0;
+}
+
+.msg-model .modal-body .new-msg input {
+  opacity: 0.45;
+  width: 100%;
+  padding: 10px 50px 10px 35px;
+  border: none;
+  color: black;
+}
+
+.msg-model .modal-body .new-msg svg {
+  opacity: 0.45;
+  left: 0;
+  top: 50%;
+  color: #15c281;
+  font-size: 17px;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+.msg-model .modal-body .new-msg a {
+  opacity: 0.45;
+  right: 0;
+  top: 50%;
+  color: #15c281;
+  font-size: 17px;
+  transform: translateY(-50%);
+  position: absolute;
+  cursor:pointer;
+}
+
+.msg-model .modal-body .new-msg a:hover {
+  opacity: 1;
+}
+
+//find messages
+.feed-outer.comment .profile {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.feed-outer .profile img {
+  width: 100%;
+  height: 100%; 
+}
+
+.feed-outer .data {
+  width: calc(100% - 60px);
+  float: left;
+  margin-top: -7px;
+  padding-left: 10px;
+  position: relative;  
+}
+
+.feed-outer .data h1 {
+  font-size: 22px;
+  line-height: 28px;
+  color: #888888;
+  margin-bottom: 4px;
+}
+
+.feed-outer .data h4 {
+  color: #888888;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.feed-outer.comment p a {
+  color: #15C281;
+}
+
+.feed-outer:last-child {
+  margin-bottom: 0px;
+}
+
+//
+
+//messages list
+.feed-outer.comment h1 span.count {
+  font-size: 14px;
+  color: white;
+  background: #34c083;
+  width: 18px;
+  height: 18px;
+  display: inline;
+  text-align: center;
+  padding: 3px 7px 3px;
+  border-radius: 50%;
+}
+
+.feed-outer.comment h1 span.time {
+  float: right;
+  color: #888888;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.feed-outer.comment p {
+  margin-bottom: 0;
+  color: #222222;
+}
+
+//
+
+
+@media (max-width: 600px) {
+  .msg-model .modal-title a.plus {
+    margin-left: 10px;
+  }
+
+  .msg-model .modal-body .find input {
+    width: 100%;
+  }
+
+  .msg-model .modal-body .left p,
+  .msg-model .modal-body .right p {
+    width: 90%;
+  }
+}
+
+
+

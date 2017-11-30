@@ -1,0 +1,72 @@
+﻿<div class="feed-outer comment" *ngFor="let comment of comments">
+  <div class="profile out">
+    <div class="img">
+      <img [src]="comment.avatar" class="avatar">
+    </div>
+    <div class="data">
+      <h1><a href="#">{{comment.nickname}}</a><span class="time">{{comment.createdAt | amTimeAgo}}</span></h1>
+      <p>{{comment.text}}</p>
+      <div class="feed-inner post">
+        <ul>
+          <li class="mb10" *ngFor="let media of comment.media">
+            <a *ngIf="media.kind=='Photo'"  (click)="postImageModal.show();" >
+              <img [src]="media.link"  class="post-image">
+            </a>
+              <video width="400" height="240" controls *ngIf="media.kind=='Video'">
+                <source src="{{media.link}}" type="{{media.mimeType}}">
+              </video>
+              <audio controls *ngIf="media.kind=='Audio'">
+                <source src="{{media.link}}" type="{{media.mimeType}}" />
+              </audio>
+
+            <!--image modal-->
+            <div class="modal fade postImageModal" bsModal #postImageModal="bs-modal" [config]="{backdrop: 'static'}"
+                 tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <button type="button" class="close" id="closeCreatePost" data-dismiss="modal" (click)="postImageModal.hide()">&times;</button>
+                  <div class="modal-body">
+                    <img [src]="media.link">
+                  </div>
+                </div>
+              </div>
+            </div>
+           </li>
+          <div class="clear-fix"></div>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="clear-fix"></div>
+</div>  
+
+<form class="feed-outer comment"
+      #commentForm="ngForm"
+      novalidate
+      (ngSubmit)="submit()">
+  <div class="profile out">
+    <input type="text" placeholder="Comment..." name="text" required [(ngModel)]="commentFormModel.text" autocomplete="off" autofocus>
+    <div class="icons" style="display: none">
+      <a class="icon" (click)="imageInput.click()">
+        <svg width="25" height="19" viewBox="0 0 25 19" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.718 5.837c0-1.064.88-1.93 1.963-1.93 1.085 0 1.965.866 1.965 1.93 0 1.065-.88 1.93-1.962 1.93-1.082 0-1.962-.865-1.962-1.93zM2.108 16.48v-2.628l6.737-5.458 6.62 5.75c.39.34.97.346 1.366.015l2.85-2.374 2.455 2.053v2.64H2.108zM22.133 2.254v8.84L20.36 9.606c-.39-.327-.96-.328-1.35-.002l-2.84 2.36-6.61-5.742c-.387-.335-.958-.345-1.355-.023l-6.097 4.94V2.25h20.025zm1.053-2.11H1.054C.472.144 0 .618 0 1.2v16.335c0 .582.472 1.054 1.054 1.054h22.132c.582 0 1.054-.475 1.054-1.057V1.2c0-.583-.472-1.055-1.054-1.055z" fill-rule="evenodd" fill-opacity=".5" />
+        </svg>
+      </a>
+      <a class="icon" (click)="videoInput.click()">
+        <svg width="26" height="22" viewBox="0 0 26 22" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.99 19.246H2.19V7.93h3.95c.494 0 .927-.337 1.056-.796L8.372 2.93h8.434l1.177 4.204c.128.46.562.797 1.056.797h3.95v11.32zm1.094-13.42h-4.207L18.7 1.62c-.128-.458-.56-.795-1.056-.795H7.534c-.494 0-.928.337-1.057.796L5.3 5.83H1.096C.49 5.828 0 6.26 0 6.842V20.3c0 .58.49 1.05 1.095 1.05h22.99c.603 0 1.093-.47 1.093-1.05V6.84c0-.582-.49-1.017-1.094-1.017zM12.59 16.216c-2.255 0-4.09-1.8-4.09-4.01 0-2.213 1.835-4.01 4.09-4.01 2.253 0 4.087 1.797 4.087 4.01 0 2.21-1.834 4.01-4.088 4.01zm0-10.128c-3.462 0-6.278 2.743-6.278 6.115 0 3.373 2.816 6.116 6.277 6.116 3.46 0 6.272-2.747 6.272-6.12 0-3.37-2.816-6.116-6.278-6.116z" fill-rule="evenodd" fill-opacity=".5" />
+        </svg>
+      </a>
+      <a class="icon" (click)="audioInput.click()">
+        <svg width="15" height="27" viewBox="0 0 15 27" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.035 14.73c.007.058.082.177.152.246l2.604.002c.07-.07.15-.187.16-.252V2.58c0-.058-.08-.177-.15-.247H6.2c-.07.068-.145.19-.153.254V14.73zM4.26 16.383c-.43-.498-.674-1.08-.674-1.656l.007-12.15c0-.576.246-1.192.676-1.69C4.75.327 5.4 0 6.03 0h2.93c1.352 0 2.44 1.385 2.44 2.55l-.008 12.12c0 1.164-1.09 2.508-2.442 2.508l-2.924.06c-.636 0-1.28-.29-1.766-.855zm9.67-7.94c-.593 0-1.072.457-1.073 1.018l-.006 7.57c0 .44-.17.85-.48 1.15-.3.3-.7.46-1.11.46H3.75c-.42 0-.82-.17-1.12-.462-.31-.305-.48-.71-.48-1.15l.008-7.56c0-.56-.48-1.012-1.07-1.012-.59 0-1.07.453-1.073 1.015L0 17.02c0 .966.383 1.88 1.08 2.567.71.697 1.653 1.08 2.66 1.08l7.51.007h.002c1.006 0 1.95-.385 2.658-1.08.698-.688 1.083-1.603 1.084-2.57L15 9.46c0-.562-.48-1.017-1.07-1.017zm.26 17.178c0 .65-.55 1.17-1.226 1.17H1.984c-.674 0-1.224-.52-1.224-1.16 0-.64.55-1.16 1.225-1.16h4.437l.003-1.974c.002-.56.486-1.006 1.074-1.016.59 0 1.07.457 1.06 1.02l-.008 1.973h4.4c.675 0 1.224.52 1.224 1.166z" fill-rule="evenodd" fill-opacity=".5" />
+        </svg>
+      </a>
+      <input #imageInput type="file" accept="image/*" (change)="fileChange($event,'Photo')" multiple class="file-input" />
+      <input #videoInput type="file" accept="video/*" (change)="fileChange($event,'Video')" multiple class="file-input" />
+      <input #audioInput type="file" accept="audio/*" (change)="fileChange($event,'Audio')" multiple class="file-input" />
+
+    </div>
+  </div>
+  <div class="clear-fix"></div>
+</form>

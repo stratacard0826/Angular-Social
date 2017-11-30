@@ -1,0 +1,8 @@
+// Bootstrap v3
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+// intl-tel-input
+@import './intl-tel-input/intl-tel-input';
+// custom fonts
+@import './fonts/fonts';

@@ -1,0 +1,291 @@
+﻿<form *ngIf="formType=='signUp'"
+      class="registration-form"
+     #authForm="ngForm"
+     novalidate     
+     (ngSubmit)="submit(authForm)"
+     >
+  <div class="outer half left">
+    <label>Username</label><br />    
+    <input name="username"
+           #username="ngModel"
+           placeholder="@JohnnyFaz"
+           required
+           type="text"
+           minlength="1"
+           [(ngModel)]="user.username"
+           pattern="^\w+$">
+    <p class="error" *ngIf="username.invalid && (!username.pristine || isSubmitted)">
+      Your username can include letters, numbers, and underscores.
+    </p>
+  </div>
+  <div class="outer half right">
+    <label>Nickname</label><br />    
+    <input name="displayname"
+           #displayName="ngModel"
+           placeholder="Johnny Faz"
+           required
+           type="text"
+           minlength="1"
+           [(ngModel)]="user.displayName">
+    <p class="error" *ngIf="displayName.invalid && (!displayName.pristine || isSubmitted)">
+      Your nickname must contain at least one character.
+    </p>
+  </div>
+  <div class="clear-fix"></div>
+  <div class="outer full">
+    <label>Email</label><br />
+    <input name="email"
+           #email="ngModel"
+           placeholder="marcelpatoulachi@gmail.com"
+           required
+           type="email"
+           [(ngModel)]="user.email">
+    <p class="error" *ngIf="email.invalid && (!email.pristine || isSubmitted)">
+      Please enter a valid email address.
+    </p>
+  </div>
+  <div class="outer full">
+    <label>Mobile</label><br />
+    <input name="phone"
+           #phone="ngModel"           
+           required
+           type="text"
+           minlength="7"
+           [(ngModel)]="user.phone">
+    <p class="error" *ngIf="phone.invalid && (!phone.pristine || isSubmitted)">
+      Please enter a valid mobile number.
+    </p>
+  </div>
+  <div class="outer full">
+    <label>Password</label><br />
+    <input name="password"
+           #password="ngModel"
+           placeholder="password"
+           required           
+           minlength="5"           
+           [(ngModel)]="user.password"
+           [attr.type]="isToggle?'text':'password'">    
+    <p class="error" *ngIf="password.invalid && (!password.pristine || isSubmitted)">
+      Your password must contain at least five characters.
+    </p>
+    <span class="toggle-pw" (click)="isToggle=!isToggle">
+      <img src="assets/images/img/eye.png" alt="">
+    </span>
+  </div>
+  <div class="social-icons">
+    <a href="#"><img src="assets/images/img/fb.png" alt=""></a>
+    <a href="#"><img src="assets/images/img/tw.png" alt=""></a>
+  </div>
+  
+    <div class="alert alert-danger" *ngIf="fail">
+      <strong>Failed!</strong> {{fail}}
+    </div>
+    <div class="alert alert-success" *ngIf="success">
+      <strong>Success!</strong> {{success}}
+    </div>
+  <div class="create-account text-center">
+    <button name="button"
+            type="submit">
+      Create Account
+    </button>
+    </div>
+</form>
+
+
+<form *ngIf="formType=='verify'"
+      class="registration-form"
+      #authForm="ngForm"
+      novalidate
+      (ngSubmit)="submit(authForm)">
+
+  <div class="outer full">
+    <label>Email</label><br />
+    <input name="email"
+           #email="ngModel"
+           placeholder="marcelpatoulachi@gmail.com"
+           required
+           type="email"
+           [(ngModel)]="user.email">
+    <p class="error" *ngIf="email.invalid && !email.pristine">
+      Please enter a valid email address.
+    </p>
+  </div>
+  <div class="outer full">
+    <label>Verificaton Code</label><br />
+    <input name="verify"
+           #verify="ngModel"
+           placeholder="1234567"
+           required
+           type="text"
+           maxlength="7"
+           minlength="7"
+           [(ngModel)]="user.verifyCode"
+           pattern="^\d+$">
+    <p class="error" *ngIf="verify.invalid && !verify.pristine">
+    Your verification code should contain seven numbers.
+    </p>
+  </div>    
+ 
+    <div class="alert alert-danger" *ngIf="fail">
+      <strong>Failed!</strong> {{fail}}
+    </div>
+    <div class="alert alert-success" *ngIf="success">
+      <strong>Success!</strong> {{success}}
+    </div>
+  <div class="create-account text-center">
+    <button name="button"
+            type="submit"
+            [disabled]="authForm.form.invalid">
+      Verify Account
+    </button>
+    </div>
+</form>
+
+
+<!--<div class="auth">
+  <p class="auth-cta" *ngIf="formType === 'signUp'">
+    Create a uSTADIUM account below.
+  </p>
+  <p class="auth-cta" *ngIf="formType === 'forgotPassword'">
+    Enter your uSTADIUM account information below.
+  </p>  
+  <p class="auth-cta" *ngIf="formType === 'verify'">
+    Enter your uSTADIUM verification code below.
+  </p>
+  <p class="auth-cta" *ngIf="formType === 'resetPassword'">
+    Enter your new uSTADIUM password below.
+  </p>
+  <form
+    class="auth-form"
+    #authForm="ngForm"
+    novalidate
+    [ngClass]="{'new': formType === 'signUp'}"
+    (ngSubmit)="submit(authForm)"
+  > 
+    <div class="row">
+      <div class="col-md-6">
+        <div class="auth-form-username"
+             *ngIf="formType !== 'verify'">
+          <label for="username">Username</label>
+          <input name="username"
+                 #username="ngModel"
+                 placeholder="@JohnnyFaz"
+                 required
+                 type="text"
+                 minlength="1"
+                 [(ngModel)]="user.username"
+                 pattern="^\w+$">
+          <p class="error" *ngIf="username.invalid && !username.pristine">
+            Your username can include letters, numbers, and underscores.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="auth-form-displayname" *ngIf="formType === 'signUp'">
+          <label for="displayname">Nickname</label>
+          <input name="displayname"
+                 #displayName="ngModel"
+                 placeholder="Johnny Faz"
+                 required
+                 type="text"
+                 minlength="1"
+                 [(ngModel)]="user.displayName">
+          <p class="error" *ngIf="displayName.invalid && !displayName.pristine">
+            Your display name must contain at least one character.
+          </p>
+        </div>
+      </div>
+    </div>
+      <div class="auth-form-email" *ngIf="formType === 'signUp' || formType === 'verify'">
+        <label for="email">Phone or Email</label>
+        <input name="email"
+               #email="ngModel"
+               placeholder="JohnnyFaz@gmail.com"
+               required
+               type="email"
+               [(ngModel)]="user.email">
+        <p class="error" *ngIf="email.invalid && !email.pristine">
+          Please enter a valid phone or email address.
+        </p>
+      </div>
+
+      <div class="auth-form-email" *ngIf="formType === 'forgotPassword'">
+        <label for="email">Email</label>
+        <input name="email"
+               #email="ngModel"
+               placeholder="JohnnyFaz@gmail.com"
+               type="email"
+               [(ngModel)]="user.email"
+               [required]="!user.phone">
+        <p class="error" *ngIf="email.invalid && !email.pristine">
+          Please enter a valid email address.
+        </p>
+      </div>
+
+      <div class="auth-form-password" *ngIf="formType !== 'forgotPassword' && formType !== 'verify'">
+        <label for="password">Password</label>
+        <input name="password"
+               #password="ngModel"
+               placeholder="password"
+               required
+               type="password"
+               minlength="5"
+               passwordToggle
+               [(ngModel)]="user.password">
+        <p class="error" *ngIf="password.invalid && !password.pristine">
+          Your password must contain at least five characters.
+        </p>
+      </div>
+
+      <div class="auth-form-verify" *ngIf="formType === 'verify'">
+        <label for="verify">Verificaton Code</label>
+        <input name="verify"
+               #verify="ngModel"
+               placeholder="1234567"
+               required
+               type="text"
+               maxlength="7"
+               minlength="7"
+               [(ngModel)]="user.verifyCode"
+               pattern="^\d+$">
+        <p class="error" *ngIf="verify.invalid && !verify.pristine">
+          Your verification code should contain seven numbers.
+        </p>
+      </div>
+
+      <div class="auth-form-verify" *ngIf="formType === 'resetPassword'">
+        <label for="verify">Verificaton Code</label>
+        <input name="verify"
+               #verify="ngModel"
+               placeholder="1234567"
+               required
+               type="text"
+               maxlength="7"
+               minlength="7"
+               [(ngModel)]="user.code"
+               pattern="^\d+$">
+        <p class="error" *ngIf="verify.invalid && !verify.pristine">
+          Your verification code should contain seven numbers.
+        </p>
+      </div>
+
+    <div class="auth-form-social">
+      <a href="#"><img src="/assets/images/facebook_circle.png" alt="facebook" /></a>
+      <a href="#"><img src="/assets/images/twitter_circle.png" alt="twitter" /></a>
+</div>
+      <p class="auth-form-fail" *ngIf="fail">
+        {{fail}}
+      </p>
+      <p class="auth-form-success" *ngIf="success && formType !== 'login'">
+        {{success}}
+      </p>
+
+      <button class="auth-form-button"
+              name="button"
+              type="submit"
+              [ngClass]="{'auth-form-button_disabled': authForm.form.invalid}"
+              [disabled]="authForm.form.invalid">
+        {{ submitType }}
+      </button>
+</form>
+</div>-->

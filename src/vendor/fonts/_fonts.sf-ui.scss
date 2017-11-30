@@ -1,0 +1,39 @@
+// font src paths must be set relative to 'root' - webpack
+
+// SF-UI-Display
+@font-face {
+  font-family: 'SFProDisplayBlack';
+  src: url('/assets/SF-UI/SF-UI-Display-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SFProDisplayBold';
+  src: url('/assets/SF-UI/SF-UI-Display-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SFProDisplayHeavy';
+  src: url('/assets/SF-UI/SF-UI-Display-Heavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SFProDisplayLight';
+  src: url('/assets/SF-UI/SF-UI-Display-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SFProDisplayMedium';
+  src: url('/assets/SF-UI/SF-UI-Display-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SFProDisplayThin';
+  src: url('/assets/SF-UI/SF-UI-Display-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}

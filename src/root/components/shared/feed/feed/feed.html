@@ -1,0 +1,67 @@
+﻿<div class="box-bg feeds">
+  <h1 class="heading">Recommended Feeds</h1>
+  <div class="search">
+    <input #searchFeed
+           class="input-bar" 
+           type="text" 
+           placeholder="Search name or phone number"
+           (input)="filterFeeds(searchFeed.value)">
+  </div>
+  <ul>
+    <li *ngFor="let feed of filteredFeeds | slice:0:4" [ngClass]="{'joined':feed.isSubscribed}">
+      <div class="img">
+        <img [src]="feed.profileImage"/>
+      </div>
+      <div class="data">
+        <h1><a href="#">{{feed.feedName}}</a></h1>
+        <p>by <a href="#">@{{feed.username}}</a></p>
+      </div>
+      <div class="join" (click)="toggleSubscription(feed)">{{feed.isSubscribed?'Joined':'Join'}}</div>
+    </li>
+    </ul>
+  <div class="see-all" (click)="seeAll()">See All</div>
+
+    <!--<ul>
+      <li>
+        <div class="img">
+          <img src="assets/images/img/profile01.png">
+        </div>
+        <div class="data">
+          <h1><a href="#">Jets Are Good</a></h1>
+          <p>by <a href="#">@BillSpano</a></p>
+        </div>
+        <div class="join">Join</div>
+      </li>
+      <li>
+        <div class="img">
+          <img src="assets/images/img/profile02.png">
+        </div>
+        <div class="data">
+          <h1><a href="#">Original-uSTADIUM</a></h1>
+          <p>by <a href="#">@uSTADIUM</a></p>
+        </div>
+        <div class="join">Join</div>
+      </li>
+      <li class="joined">
+        <div class="img">
+          <img src="assets/images/img/profile03.png">
+        </div>
+        <div class="data">
+          <h1><a href="#">NYC Patriots</a></h1>
+          <p>by <a href="#">@keating_007</a></p>
+        </div>
+        <div class="join">Joined</div>
+      </li>
+      <li class="joined">
+        <div class="img">
+          <img src="assets/images/img/profile01.png">
+        </div>
+        <div class="data">
+          <h1><a href="#">NFC East Rumors</a></h1>
+          <p>by <a href="#">@NFLEastNation</a></p>
+        </div>
+        <div class="join">Joined</div>
+      </li>
+    </ul>-->
+   
+</div>

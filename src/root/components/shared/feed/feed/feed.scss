@@ -1,0 +1,218 @@
+﻿.box-bg {
+  border-radius: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px #edeeee;
+  margin-bottom: 15px;
+}
+
+.box-bg > h1.heading {
+  font-size: 21px;
+  padding: 15px;
+  margin: 0;  
+  text-align: center;
+  color: #000000;
+  font-family: SFProDisplayBold;
+}
+
+.box-bg > .see-all {
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #818488;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+
+.box-bg.feeds ul li {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #edeeee;
+}
+
+.box-bg.feeds ul li:last-child {
+  border: none;
+}
+
+.box-bg.feeds .search {
+  padding: 0 15px;
+}
+
+.box-bg.feeds .search .input-bar {
+  margin-bottom: 5px;
+}
+
+.box-bg.feeds ul li .img {
+  width: 30px;
+  height: 30px;
+  float: left;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+.box-bg.feeds ul li .img img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.box-bg.feeds .data {
+  width: calc(100% - 70px);
+  float: left;
+  padding-left: 10px;
+  overflow: hidden;
+}
+
+.box-bg.feeds .data h1 {
+  font-size: 15px;
+  color: #000000;
+  margin: 0;
+}
+
+.box-bg.feeds .data p {
+  font-size: 12.5px;
+  color: #818488;
+  font-family: SFProDisplayLight;
+  margin: 0;
+}
+
+.box-bg.feeds .data p a {
+  color: #15c281;
+}
+
+.box-bg.feeds .join {
+  width: 40px;
+  float: left;
+  border-radius: 4px;
+  border: solid 1px #000000;
+  text-align: center;
+  font-size: 10px;
+  color: #000000;
+  padding: 2px 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+}
+
+.box-bg.feeds ul li.joined .join {
+  border: none;
+  text-align: left;
+}
+
+.box-bg.feeds ul li.joined .join:after {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 8px;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  transform: rotate(45deg);
+  left: 100%;
+  top: 4px;
+}
+
+/**********************/
+/*    search box    */
+/**********************/
+.box-bg.search-box {
+  padding: 15px;
+}
+
+.box-bg.search-box .heading {
+  padding: 0 0 15px 0;
+}
+
+.box-bg .search .input-bar {
+  border-radius: 100px;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: none;
+  font-size: 13px;
+  color: #888888;
+  width: 100%;
+  padding: 5px 0;
+  margin-bottom: 15px;
+  font-family: SFProDisplayLight;
+}
+
+.box-bg.search-box ul li {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  position: relative;
+}
+
+.box-bg.search-box ul li:first-child {
+  padding-top: 0;
+}
+
+.box-bg.search-box ul li:last-child {
+  padding-bottom: 0;
+}
+
+.box-bg.search-box ul li:after {
+  position: absolute;
+  content: "";
+  width: calc(100% - 37px);
+  height: 1px;
+  background: #f1f1f1;
+  bottom: 0;
+  left: 37px;
+}
+
+.box-bg.search-box ul li:last-child:after {
+  padding-bottom: 0;
+  content: none;
+}
+
+.box-bg.search-box ul li .img {
+  width: 37px;
+  height: 37px;
+  float: left;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  position: relative;
+}
+
+.box-bg.search-box ul li.online .img:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #34c083;
+  border-radius: 50%;
+  right: -1px;
+  bottom: -1px;
+  border: 2px solid white;
+}
+
+.box-bg.search-box ul li .img img {
+  width: 100%;
+  height: 100%;
+}
+
+.box-bg.search-box .data {
+  width: calc(100% - 97px);
+  float: left;
+  padding-left: 10px;
+  overflow: hidden;
+}
+
+.box-bg.search-box .data h1 {
+  font-size: 15px;
+  color: #000000;
+  margin: 0;
+}
+
+.box-bg.search-box .join {
+  width: 60px;
+  float: left;
+  border-radius: 4px;
+  border: solid 1px #000000;
+  text-align: center;
+  font-size: 10px;
+  color: #000000;
+  padding: 2px 0;
+  text-transform: uppercase;
+  cursor: pointer;
+}

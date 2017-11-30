@@ -1,0 +1,134 @@
+﻿<div class="box-bg feeds-filter-list">
+  <ul>
+    <li class="active">All</li>
+    <li>Feed test...</li>
+    <li>NFL</li>
+    <li>uStadium</li>
+    <li class="more" id="moreBtn" (click)="isExpandMore=!isExpandMore">
+      More
+      <ul class="more-feeds" *ngIf="isExpandMore">
+        <li>Testing</li>
+        <li>Feed test...</li>
+        <li>Feed</li>
+        <li>Enjoy</li>
+      </ul>
+    </li>
+  </ul>
+  <div class="clear-fix"></div>
+</div>
+
+<div class="box-bg wrapper" *ngFor="let post of posts"
+     		    infiniteScroll
+		    [infiniteScrollDistance]="2"
+		    [infiniteScrollThrottle]="2000"
+		    (scrolled)="onScroll()">
+  <div class="feed-outer post">
+    <div class="profile out">
+      <div class="img">
+        <img [src]="post.avatar?post.avatar:'/assets/images/img/avatar.png'"/>        
+      </div>      
+      <div class="data" ngbDropdown>
+        <h1><a href="#">{{post.nickname}}</a> <span *ngIf="post.to">to <a href="#">{{post.to}}</a></span></h1>
+        <h4>{{post.createdAt | amTimeAgo}}</h4>
+        <span class="menu-02 post-drop-menu" id="post-drop-menu" ngbDropdownToggle>
+          <svg width="19" height="5" viewBox="0 0 19 5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <use xlink:href="#dots-a" fill="#1B1B1B" />
+            <defs>
+              <path id="dots-a" fill-rule="evenodd" d="M16.808 4.385c-1.21 0-2.193-.982-2.193-2.193 0-1.21.982-2.192 2.193-2.192C18.018 0 19 .98 19 2.192c0 1.21-.982 2.193-2.192 2.193zm-7.308 0c-1.21 0-2.192-.982-2.192-2.193C7.308.982 8.288 0 9.5 0c1.21 0 2.192.98 2.192 2.192 0 1.21-.98 2.193-2.192 2.193zm-7.308 0C.982 4.385 0 3.403 0 2.192 0 .982.98 0 2.192 0c1.21 0 2.193.98 2.193 2.192 0 1.21-.982 2.193-2.193 2.193z" />
+            </defs>
+          </svg>
+        </span>
+        <div ngbDropdownMenu aria-labelledby="post-drop-menu">
+          <button class="dropdown-item" (click)="deletePost(post.postId)">Delete</button>          
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <p>{{post.text}}</p>
+    </div>
+    <div class="feed-inner post">
+      <ul>
+        <li *ngFor="let media of post.media"             
+            [ngClass]="{'post-images':post.media && post.media.length>=4,'mb10':media.kind!='Photo'|| post.media.length<4,'post-image-overflow':post.media.length>1 && post.media.length<4}"
+            [style.width]="media.kind=='Video' || post.media.length==1 ?'100%':(post.media.length>=4?'50%':'')"
+            [style.height]="post.media.length>1 && post.media.length<4?'400px':''">
+
+          <a *ngIf="media.kind=='Photo'" (click)="postImageModal.show();"><img style="height:100%;width:100%" [src]="media.link" class="post-image"></a>
+                <video controls *ngIf="media.kind=='Video'" style="width:100%;max-height:400px;"
+                       controlsList="nodownload">
+                  <source src="{{media.link}}" type="{{media.mimeType}}">
+                </video>
+                <audio controls *ngIf="media.kind=='Audio'">
+                  <source src="{{media.link}}" type="{{media.mimeType}}" />
+                </audio>
+
+          <!--image modal-->
+          <div class="modal fade postImageModal" bsModal #postImageModal="bs-modal" [config]="{backdrop: 'static'}"
+               tabindex="-1" role="dialog" aria-hidden="true" style="display:none">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <button type="button" class="close" id="closeCreatePost" data-dismiss="modal" (click)="postImageModal.hide()">&times;</button>
+                <div class="modal-body">
+                  <img [src]="media.link">
+                </div>
+              </div>
+            </div>
+          </div>
+     </li>
+        
+        <div class="clear-fix"></div>
+      </ul>
+    </div>
+    <div class="stats">
+      <a class="like" (click)="onLike(post)">
+        <svg width="27" height="28" viewBox="0 0 27 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <use xlink:href="#like" [attr.fill]="post.isLike?'#34C083':''" />
+          <defs>
+            <path id="like" fill-rule="evenodd" d="M26.406 12.032c.736 1.397.603 2.86-.092 5.052-.072.224-.142.435-.255.772l-.147.428c-1.387 4.16-2.942 6.343-5.034 7.294-.05.023-.103.043-.156.06-2 .598-8.075.018-11.428-.915v.846c0 .98-.796 1.773-1.778 1.773H1.776C.796 27.343 0 26.55 0 25.57V9.707c0-.98.796-1.777 1.778-1.777H7.52c.982 0 1.778.796 1.778 1.778v.392c.406-.26.954-.606 1.175-.746l.04-.025.06-.04c1.795-1.146 2.832-1.895 3.597-2.66.44-.44.703-.827.877-1.25.118-.288.196-.575.314-1.13.276-1.275.39-1.714.73-2.548.87-2.134 3.76-2.254 5.366-.414 1.482 1.7 1.6 4.48.183 7.97 2.46.442 4.016 1.344 4.767 2.77zM19.944 23.3c-1.78.45-8.517-.332-10.646-1.114v-9.142c.274-.19.582-.392.94-.623.302-.192 1.306-.83 1.585-1.005l.072-.046c1.942-1.238 3.085-2.063 4.016-2.994.67-.667 1.116-1.324 1.416-2.055.19-.46.298-.86.445-1.55.24-1.136.33-1.476.6-2.132.11-.272.735-.298 1.23.27.924 1.06.86 3.385-.87 6.804-.393.78.123 1.708.99 1.784 2.716.236 4.073.855 4.51 1.686.33.63.248 1.56-.26 3.16-.066.21-.133.41-.242.734-.072.215-.11.323-.145.432-1.166 3.503-2.314 5.15-3.636 5.795z" />
+          </defs>
+        </svg>
+        <span class="count" [style.color]="post.likes>0?'#34C083':''">{{post.likes}}</span>
+      </a>
+      <a class="comments" (click)="post.isComments=!post.isComments">
+        <svg width="25" height="24" viewBox="0 0 25 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <use xlink:href="#comments" transform="translate(.75)" />
+          <defs>
+            <path id="comments" fill-rule="evenodd" d="M19.296 22.415V18.09c2.665 0 4.824-2.16 4.824-4.824V4.824C24.12 2.16 21.96 0 19.296 0H4.824C2.16 0 0 2.16 0 4.824v8.442c0 2.665 2.16 4.824 4.824 4.824h7.236l5.178 5.178c.47.47 1.234.47 1.705 0 .226-.227.353-.533.353-.853zm0-6.737h-2.412v3.825l-3.825-3.825H4.822c-1.332 0-2.412-1.08-2.412-2.412V4.824c0-1.332 1.08-2.412 2.413-2.412h14.472c1.332 0 2.412 1.08 2.412 2.412v8.442c0 1.332-1.08 2.412-2.412 2.412z" />
+          </defs>
+        </svg>
+        <span class="count">{{post.numComments}}</span>
+      </a>
+      <a class="share">
+        <svg width="29" height="22" viewBox="0 0 29 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <title>Combined Shape</title>
+          <desc>Created using Figma</desc>
+          <g id="Canvas" transform="translate(-762 -864)">
+            <g id="Combined Shape" opacity="0.500045">
+              <mask id="mask0_outline_ins">
+                <use xlink:href="#path0_fill" fill="white" transform="translate(762.5 864)" />
+              </mask>
+              <g mask="url(#mask0_outline_ins)">
+                <use xlink:href="#path1_stroke_2x" transform="translate(762.5 864)" />
+              </g>
+            </g>
+          </g>
+          <defs>
+            <path id="path0_fill" fill-rule="evenodd" d="M 1.13214 21.897C 0.467321 21.7241 0.00229137 21.1251 2.10855e-05 20.4379C -0.00111406 20.1946 0.0272646 14.4296 4.34459 10.096C 7.08823 7.3418 10.8872 5.81807 15.6529 5.55623L 15.6529 1.51361C 15.6529 0.899495 16.0241 0.345924 16.5924 0.11322C 17.1615 -0.119862 17.8134 0.013706 18.2444 0.451492L 27.5647 9.91063C 28.1451 10.5001 28.1451 11.4461 27.5647 12.0352L 18.2444 21.4944C 17.8134 21.9318 17.1615 22.0661 16.5924 21.8326C 16.0241 21.5999 15.6529 21.0464 15.6529 20.4323L 15.6529 16.3431C 12.6432 16.2576 5.43168 16.558 2.8322 21.175C 2.55939 21.6593 2.05009 21.9462 1.51354 21.9462C 1.38716 21.9462 1.25927 21.9303 1.13214 21.897Z" />
+            <path id="path1_stroke_2x" d="M 1.13214 21.897L 1.63886 19.9622L 1.63559 19.9614L 1.13214 21.897ZM 2.10855e-05 20.4379L 2.00001 20.4313L 2 20.4286L 2.10855e-05 20.4379ZM 4.34459 10.096L 5.76146 11.5076L 5.76152 11.5075L 4.34459 10.096ZM 15.6529 5.55623L 15.7626 7.55321C 16.8229 7.49496 17.6529 6.61817 17.6529 5.55623L 15.6529 5.55623ZM 16.5924 0.11322L 17.3502 1.96408L 17.3504 1.964L 16.5924 0.11322ZM 18.2444 0.451492L 16.8191 1.85458L 16.8198 1.85521L 18.2444 0.451492ZM 27.5647 9.91063L 28.9898 8.50744L 28.9893 8.50691L 27.5647 9.91063ZM 27.5647 12.0352L 28.9893 13.439L 28.9894 13.4389L 27.5647 12.0352ZM 18.2444 21.4944L 16.8198 20.0907L 16.8197 20.0907L 18.2444 21.4944ZM 16.5924 21.8326L 17.3515 19.9823L 17.3502 19.9818L 16.5924 21.8326ZM 15.6529 16.3431L 17.6529 16.3431C 17.6529 15.2607 16.7917 14.3747 15.7097 14.3439L 15.6529 16.3431ZM 2.8322 21.175L 4.57477 22.1566L 4.57496 22.1562L 2.8322 21.175ZM 1.63559 19.9614C 1.84923 20.0169 1.99928 20.2097 2.00001 20.4313L -1.99997 20.4445C -1.9947 22.0404 -0.914591 23.4312 0.628683 23.8326L 1.63559 19.9614ZM 2 20.4286C 2.00055 20.5411 1.98812 19.083 2.48301 17.3249C 2.98783 15.4464 3.84228 13.3838 5.76146 11.5076L 2.92772 8.68449C -1.98026 13.611 -2.00166 20.0833 -1.99996 20.4473L 2 20.4286ZM 5.76152 11.5075C 8.08129 9.17879 11.3718 7.79445 15.7626 7.55321L 15.5432 3.55924C 10.4025 3.84168 6.09516 5.50481 2.92765 8.68455L 5.76152 11.5075ZM 17.6529 5.55623L 17.6529 1.51361L 13.6529 1.51361L 13.6529 5.55623L 17.6529 5.55623ZM 17.6529 1.51361C 17.6529 1.71065 17.5339 1.88887 17.3502 1.96408L 15.8345 -1.73764C 14.5142 -1.19702 13.6529 0.0883361 13.6529 1.51361L 17.6529 1.51361ZM 17.3504 1.964C 17.1691 2.03828 16.9582 1.99583 16.8191 1.85458L 19.6697 -0.951591C 18.6686 -1.96842 17.1539 -2.278 15.8344 -1.73756L 17.3504 1.964ZM 16.8198 1.85521L 26.14 11.3143L 28.9893 8.50691L 19.669 -0.952225L 16.8198 1.85521ZM 26.1395 11.3138C 25.9537 11.1251 25.9531 10.8213 26.14 10.6316L 28.9894 13.4389C 30.3371 12.0709 30.3365 9.87516 28.9898 8.50744L 26.1395 11.3138ZM 26.14 10.6315L 16.8198 20.0907L 19.669 22.8981L 28.9893 13.439L 26.14 10.6315ZM 16.8197 20.0907C 16.9573 19.9511 17.1678 19.9069 17.3515 19.9823L 15.8333 23.683C 17.1552 24.2253 18.6696 23.9125 19.6691 22.8981L 16.8197 20.0907ZM 17.3502 19.9818C 17.5339 20.057 17.6529 20.2352 17.6529 20.4323L 13.6529 20.4323C 13.6529 21.8575 14.5142 23.1429 15.8345 23.6835L 17.3502 19.9818ZM 17.6529 20.4323L 17.6529 16.3431L 13.6529 16.3431L 13.6529 20.4323L 17.6529 20.4323ZM 15.7097 14.3439C 14.1554 14.3004 11.3218 14.3725 8.59235 15.0582C 5.86852 15.7561 2.78076 17.1898 1.08944 20.1938L 4.57496 22.1562C 5.48311 20.5432 7.30087 19.5183 9.5851 18.933C 11.8638 18.3356 14.1407 18.3003 15.5961 18.3423L 15.7097 14.3439ZM 1.08963 20.1935C 1.17764 20.0372 1.34114 19.9462 1.51354 19.9462L 1.51354 23.9462C 2.75903 23.9462 3.94114 23.2815 4.57477 22.1566L 1.08963 20.1935ZM 1.51354 19.9462C 1.55552 19.9462 1.59802 19.9515 1.63885 19.9622L 0.625417 23.8317C 0.881779 23.8943 1.26362 23.9423 1.51354 23.9462L 1.51354 19.9462Z" />
+          </defs>
+        </svg>
+
+        <span class="count">15</span>
+      </a>
+      <a class="reactions">
+        <span class="images">
+          <img src="assets/images/img/smile01.png" alt="">
+          <img src="assets/images/img/smile02.png" alt="">
+          <img src="assets/images/img/smile03.png" alt="">
+        </span>
+        <span class="count">75</span>
+      </a>
+    </div>
+  </div>
+  <comments [thread]="post" (onSubmit)="onPostComment($event)" *ngIf="post.isComments"></comments>
+</div>
